@@ -21,7 +21,7 @@ Route::post('/loginVerify', 'LoginController@verify');
 
 Route::get('/logout', 'LoginController@sessionRemove')->name('logout');
 
-
+Route::post('/addUser', 'RegistrationController@add');
 
 
 Route::group(['middleware' => ['loginCheck']], function(){
@@ -31,8 +31,9 @@ Route::group(['middleware' => ['loginCheck']], function(){
 	
 
 	Route::get('/userlist', 'UserListController@show')->name('userlist');
+	Route::get('/carlist', 'UserListController@showCars')->name('carlist');
 
-	Route::post('/addUser', 'RegistrationController@add');
+	
 
 
 
@@ -41,6 +42,9 @@ Route::group(['middleware' => ['loginCheck']], function(){
 
 	Route::get('/userEdit', 'UserListController@edit')->name('userEdit');
 	Route::post('/userEdit', 'UserListController@update')->name('userEdit');
+
+	Route::get('/adminProfile', 'AdminController@profile')->name('admin.profile');
+	Route::post('/adminProfile', 'AdminController@profileUpdate')->name('admin.profile');
 
 
 });

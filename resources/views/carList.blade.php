@@ -41,37 +41,39 @@
 </head>
 <body>
 
-<h2>My Customers</h2> 
+<h2>Cars In the House</h2> 
 
 <a href="{{route('logout')}}" style="color: red;">Log out</a><br><br>
-<a href="{{route('carlist')}}" style="color: blue;">Car List</a><br><br> 
+<a href="{{route('logout')}}" style="color: blue;">Car List</a><br><br> 
   <a href="{{route('admin.profile')}}"> <button type="button" class="btn btn-primary btn-lg">Profile</button></a>   
 
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
- @if($students != null)
+ @if($cars != null)
 <table id="myTable">
 
   <tr class="header">
-    <th style="width:33.3%;">User Name</th>
-    <th style="width:33.3%;">Email</th>
-    <th style="width:33.3%;">Phone</th>
-    <th style="width:33.3%;">Actions</th>
+    <th style="width:20%;">Name</th>
+    <th style="width:15%;">Cost</th>
+    <th style="width:10%;">Phone</th>
+    <th style="width:15%;">Type</th>
+    <th style="width:40%;">Actions</th>
 
   </tr>
-  @foreach($students as $s)
+  @foreach($cars as $s)
           <tr>
-            <td>{{$s->studentName}}</td>
-            <td>{{$s->studentEmail}}</td>
-            <td>{{$s->studentPhone}}</td>
+            <td>{{$s->carName}}</td>
+            <td>{{$s->carCost}}</td>
+            <td>{{$s->carType}}</td>
+            <td>{{$s->availability}}</td>
         <td> 
-            <a href="{{route('userEdit', ['id' => $s->studentId])}}" style="color: green;">Edit</a>  
-            <a href="{{route('userDelete', ['id' => $s->studentId])}}" style="color: red;">Delete</a>
+            {{-- <a href="{{route('userEdit', ['id' => $s->studentId])}}" style="color: green;">Edit</a>  
+            <a href="{{route('userDelete', ['id' => $s->studentId])}}" style="color: red;">Delete</a> --}}
         </td>
          </tr>
  @endforeach
             @else
-                  <form class="modal-content" action="/userEdit" method="post">
+                  {{-- <form class="modal-content" action="/userEdit" method="post">
 
                  @csrf
                   <input type="hidden" name="id" value="{{$student->studentId}}">
@@ -93,7 +95,7 @@
 
                           <button type="submit" class="signupbtn"> Update</button>
                         </div>
-                  </form>
+                  </form> --}}
             @endif
  
 </table>

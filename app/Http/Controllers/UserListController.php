@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userList;
+use App\car;
 
 class UserListController extends Controller
 {
@@ -46,9 +47,27 @@ class UserListController extends Controller
      */
     public function show()
     {
-         $students = userList::all();
-      //  return view('student.studentlist');
-        return view('userList',['students' => $students]);
+        if (session('loggedUser')->typeid == 1) {
+            $students = userList::all();
+            //  return view('student.studentlist');
+            return view('userList',['students' => $students]);
+        }elseif (session('loggedUser')->typeid == 2) {
+            $cars = car::all();
+            //  return view('student.studentlist');
+            return view('carList',['cars' => $cars]);
+        }
+
+         
+       //return view('userList');
+    }
+
+    public function showCars()
+    {
+        
+            $cars = car::all();
+            //  return view('student.studentlist');
+            return view('carList',['cars' => $cars]);
+
        //return view('userList');
     }
 
