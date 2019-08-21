@@ -44,7 +44,8 @@
 <h2>My Customers</h2> 
 
 <a href="{{route('logout')}}" style="color: red;">Log out</a><br><br>
-<a href="{{route('carlist')}}" style="color: blue;">Car List</a><br><br> 
+<a href="{{route('carlist')}}" style="color: blue;">Car List</a><br><br>
+ 
   <a href="{{route('admin.profile')}}"> <button type="button" class="btn btn-primary btn-lg">Profile</button></a>   
 
 
