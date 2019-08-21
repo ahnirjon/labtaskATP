@@ -55,7 +55,7 @@
   <tr class="header">
     <th style="width:20%;">Name</th>
     <th style="width:15%;">Cost</th>
-    <th style="width:10%;">Phone</th>
+    
     <th style="width:15%;">Type</th>
     <th style="width:40%;">Actions</th>
 
@@ -67,31 +67,31 @@
             <td>{{$s->carType}}</td>
             <td>{{$s->availability}}</td>
         <td> 
-            {{-- <a href="{{route('userEdit', ['id' => $s->studentId])}}" style="color: green;">Edit</a>  
-            <a href="{{route('userDelete', ['id' => $s->studentId])}}" style="color: red;">Delete</a> --}}
+            <a href="{{route('carEdit', ['id' => $c->carId])}}" style="color: green;">Edit</a>  
+            <a href="{{route('carDelete', ['id' => $c->carId])}}" style="color: red;">Delete</a>}}
         </td>
          </tr>
  @endforeach
             @else
-                  {{-- <form class="modal-content" action="/userEdit" method="post">
+                  {{-- <form class="modal-content" action="/carEdit" method="post">
 
                  @csrf
-                  <input type="hidden" name="id" value="{{$student->studentId}}">
+                  <input type="hidden" name="id" value="{{$car->carId}}">
                         <div class="container">
                           <h1>Sign Up</h1>
                           <p>Please fill in this form to create an account.</p>
                           <hr>
-                          <label for="username"><b>user name</b></label>
-                          <input type="text" placeholder="username" name="username" value="{{$student->studentName}}" required>
+                          <label for="username"><b>Car name</b></label>
+                          <input type="text" placeholder="carname" name="carname" value="{{$car->carName}}" required>
 
                          
 
-                          <label for="email"><b>Email</b></label>
-                          <input type="email" placeholder="Email Address" name="email" value="{{$student->studentEmail}}" required>
+                          <label for="email"><b>car Cost</b></label>
+                          <input type="text" placeholder="cost" name="carcost" value="{{$car->carCost}}" required>
                           <br>
 
-                          <label for="phone"><b>Phone</b></label>
-                          <input type="text" placeholder="ph number" name="phone" value="{{$student->studentPhone}}" required>
+                          <label for="phone"><b>car Type</b></label>
+                          <input type="text" placeholder="type" name="cartype" value="{{$car->carType}}" required>
 
                           <button type="submit" class="signupbtn"> Update</button>
                         </div>

@@ -46,6 +46,10 @@ Route::group(['middleware' => ['loginCheck']], function(){
 	Route::get('/adminProfile', 'AdminController@profile')->name('admin.profile');
 	Route::post('/adminProfile', 'AdminController@profileUpdate')->name('admin.profile');
 
+	Route::get('/carEdit', 'CarListController@edit')->name('carEdit');
+	Route::post('/carEdit', 'CarListController@update')->name('carEdit');
+	Route::get('/carDelete', 'CarListController@deleteCar')->name('carDelete');
+
 
 });
 
